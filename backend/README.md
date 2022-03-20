@@ -1,2 +1,0 @@
-#Test task for Megafon
-
