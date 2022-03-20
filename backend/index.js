@@ -13,7 +13,7 @@ app.use(cors())
 app.use(express.json());
 app.use(express.urlencoded({extended: false}))
 const __dirname = path.resolve();
-app.use(express.static(path.join(__dirname, 'build')))
+app.use(express.static(path.join(__dirname, '..', 'build')))
 
 app.use('/api', apiRouter)
 
@@ -21,6 +21,7 @@ async function startApp() {
     try {
         await mongoose.connect(DB_URL, {useUnifiedTopology: true, useNewUrlParser: true})
         app.listen(PORT, () => console.log(`server working on ${PORT}`))
+        console.log(path.join(__dirname, 'build'))
     } catch (e) {
         console.log(e)
     }
